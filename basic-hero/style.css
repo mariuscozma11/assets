@@ -1,0 +1,128 @@
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+}
+header {
+  display: flex;
+  height: 100vh;
+  background-color: #18181b;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+}
+
+.text-box p {
+  padding-top: 1em;
+  opacity: 0;
+  animation: slideFromLeft 400ms ease-out 800ms 1 forwards;
+}
+.text-box h1 {
+  font-size: 4rem;
+  animation: slideFromLeft 400ms ease-out 0s 1;
+}
+.text-box h2 {
+  font-size: 2rem;
+  opacity: 0;
+  animation: slideFromLeft 400ms ease-out 400ms 1 forwards;
+}
+.heroimg {
+  width: 40%;
+  opacity: 0;
+  animation: slideFromRight 400ms ease-out 1200ms 1 forwards;
+}
+
+.btn {
+  opacity: 0;
+  position: relative;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 0.5em 1.5em;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 6em;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  color: white;
+  background-color: #6366f1;
+  width: fit-content;
+  margin-top: 1em;
+  animation: slideFromLeft 400ms ease-out 1200ms 1 forwards;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+  opacity: 0;
+  animation: slideFromLeft 400ms ease-out 1200ms 1 forwards;
+}
+
+.btn::after {
+  background-color: #6366f1;
+  opacity: 0;
+  animation: slideFromLeft 400ms ease-out 1200ms 1 forwards;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
