@@ -1,44 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-:root{
-    --primary-color:#27272a;
-    --hover-color:#6366f1;
-    --text-color:#e4e4e7;
-
-}
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html {
-    font-family: Roboto, sans-serif;
-    color: var(--text-color);
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+}
+.container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  z-index: 2;
+}
+.nav {
+  position: absolute;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  padding: 0.5em 2em;
+}
+.nav.slidedown {
+  position: fixed;
+  backdrop-filter: blur(10px);
+  background-color: rgb(39,39,42, 0.8);
+  animation: slidedown 200ms forwards;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+@keyframes slidedown {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+    box-shadow: 0 8px 32px 0 #18181b;
+  }
 }
 
-body{
-    min-height: 100vh;
-    min-height: 100dvh;
-    background-color: var(--primary-color);
-}
-header {
-    padding: min(5em, 7%);
+
+.nav ul {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
 }
 
-header p {
-    margin-top: .35em;
+.nav a {
+  color: white;
+  text-decoration: none;
 }
 
-.logo{
-    width:32px;
+.nav a:hover {
+  color: #6366f1;
+  transition: color 200ms ease-out;
 }
 
+.hero {
+  position: relative;
+  background-color: #18181b;
+  height: 100vh;
+  z-index: 1;
+}
 .btn {
   position: relative;
   font-size: 16px;
   text-decoration: none;
-  padding: .5em 1.5em;
+  padding: 0.5em 1.5em;
   display: inline-block;
   cursor: pointer;
   border-radius: 6em;
@@ -46,7 +75,7 @@ header p {
   border: none;
   font-family: inherit;
   font-weight: 500;
-  color: var(--text-color);
+  color: white;
   background-color: #6366f1;
 }
 
@@ -82,34 +111,10 @@ header p {
   opacity: 0;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: auto;
-    align-items: center;
-    padding: 1em 2em 1em;
-}
 
-nav ul {
-    display: flex;
-    list-style:none;
-    align-items: center;
-}
 
-nav li {
-    text-decoration: none;
-    margin: 0 1.5em  0 1.5em;
-}
 
-nav a {
-    display:flex;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: color 150ms ease;
-    
-}
-
-nav a:hover {
-    color: var(--hover-color);
+.hero-white {
+  display: flex;
+  height: 100vh;
 }
