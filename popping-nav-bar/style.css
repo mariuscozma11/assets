@@ -18,26 +18,26 @@ body {
   display: flex;
   width: 80%;
   justify-content: space-between;
-  padding: 0.5em 2em;
+  padding: 1em 2em;
 }
 .nav.slidedown {
   position: fixed;
   backdrop-filter: blur(10px);
-  background-color: rgb(39,39,42, 0.8);
+  background-color: rgb(39, 39, 42, 0.8);
   animation: slidedown 200ms forwards;
   border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
 }
+
 @keyframes slidedown {
   from {
     top: -100%;
   }
   to {
     top: 0;
-    box-shadow: 0 8px 32px 0 #18181b;
+    box-shadow: 0 2px 8px 0 #18181b;
   }
 }
-
 
 .nav ul {
   display: flex;
@@ -45,6 +45,36 @@ body {
   align-items: center;
   justify-content: center;
   list-style: none;
+}
+
+.menu-icon {
+  font-size: 32px;
+  color: white;
+  display: none !important;
+  cursor:pointer;
+}
+
+
+@media (max-width: 900px) {
+
+  .nav ul {
+    /* display: none; */
+    position: absolute;
+    display:flex;
+    flex-direction:column;
+    top: 0;
+    right: 0;
+    padding: 3rem 3rem;
+    margin:0;
+    width: 50%;
+    text-align: left;
+    align-items: start;
+    gap:3em;
+    background-color: red;
+  }
+  .menu-icon {
+    display: block !important;
+  }
 }
 
 .nav a {
@@ -110,9 +140,6 @@ body {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-
-
-
 
 .hero-white {
   display: flex;
